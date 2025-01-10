@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cute Dog Rater
 
 A fun web app that shows random dog images and lets users rate them as either "Cute" or "Really Cute"!
@@ -25,3 +26,7 @@ A fun web app that shows random dog images and lets users rate them as either "C
 ## Live Demo
 
 [Add your GitHub Pages link once deployed] 
+=======
+# Cute-or-Really-Cute-Dogs
+Dog Rating
+>>>>>>> f808ac02b07050d644789702233762e90eb8676b
