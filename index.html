@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute or Really Cute?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Fredoka', sans-serif;
+            padding: 40px 20px;
+            background-color: #fff6e5;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 0c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm-8 8c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm16 0c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5zm-8 8c-2.5 0-4.5 2-4.5 4.5s2 4.5 4.5 4.5 4.5-2 4.5-4.5-2-4.5-4.5-4.5z' fill='%23ffd7b5' fill-opacity='0.4'/%3E%3C/svg%3E");
+        }
+        
+        h1 {
+            color: #8b4513;
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .dog-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+            transition: transform 0.3s ease;
+            border: 3px solid #ffd7b5;
+            position: relative;
+        }
+        
+        .dog-container::before {
+            content: "🐾";
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 2rem;
+        }
+        
+        .dog-container::after {
+            content: "🐾";
+            position: absolute;
+            bottom: -20px;
+            right: 20px;
+            font-size: 2rem;
+        }
+        
+        .dog-container:hover {
+            transform: translateY(-5px) rotate(1deg);
+        }
+        
+        .dog-image {
+            max-width: 500px;
+            max-height: 500px;
+            border-radius: 20px;
+            display: block;
+        }
+        
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            gap: 30px;
+        }
+        
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Fredoka', sans-serif;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button:first-child {
+            background-color: #ff9a6b;
+            box-shadow: 0 4px 15px rgba(255, 154, 107, 0.4);
+        }
+        
+        button:last-child {
+            background-color: #ff6b6b;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        button:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        button::before {
+            content: "🐾";
+            position: absolute;
+            left: 10px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        button:hover::before {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+            background: rgba(255, 246, 229, 0.9);
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .dog-image {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="heartOverlay" class="heart-container"></div>
+    <h1>How do I look? 🐶</h1>
+    <div class="dog-container">
+        <img id="dogImage" class="dog-image" src="" alt="Random dog">
+    </div>
+    <div class="button-container">
+        <button onclick="handleCute()">Cute</button>
+        <button onclick="handleReallyCute()">Really Cute</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
